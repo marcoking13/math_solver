@@ -1,0 +1,130 @@
+.number_input{
+  width:100%;
+  padding:2.5%;
+  position: relative;
+  border:1px solid #e6e6e6;
+}
+.answer_log{
+  position: relative;
+}
+.number_value{
+  width:100%;
+  border:none;
+  font-family: "Amazon Ember";
+  font-size: 20px;
+  color:black;
+}
+.navigation{
+  padding:.5%;
+  border-bottom:#e6e6e6 1px solid;
+}
+.bubble{
+  border-radius:5px;
+  padding:1%;
+  text-align: center;
+  font-size:20px;
+  padding: 1% 5%;
+}
+.user_bubble{
+  color:white;
+  background:teal;
+  position: absolute;
+  top:10%;
+  right:0%;
+  animation: slide_in_from_left .1s ease-in 1;
+
+}
+.answer_bubble{
+  color:black;
+  bottom:10%;
+  left:0%;
+  position: absolute;
+  background:#e6e6e6;
+  animation: slide_in_from_right .1s ease-in 1;
+}
+
+@keyframes slide_in_from_right{
+  0%{
+    transform: translateX(-100px);
+  }
+  100%{
+    transform: translateX(0px);
+  }
+}
+@keyframes slide_in_from_left{
+  0%{
+    transform: translateX(100px);
+  }
+  100%{
+    transform: translateX(0px);
+  }
+}
+
+
+.number_value:focus{
+border:none;
+outline:none !important;
+}
+.answer_log{
+  height:40vh;
+}
+.navigation .row{
+  width:100%;
+  position: relative;
+}
+.logo_name{
+  font-size:30px;
+  padding-top: 5%;
+  color:#00CCE8;
+  font-family: "Protest Revolution"
+
+}
+.logo{
+  width:100%;
+  filter: invert(55%) sepia(82%) saturate(1434%) hue-rotate(144deg) brightness(101%) contrast(102%);
+}
+.char_box{
+  background:white;
+  box-shadow:0px 0px 10px #e6e6e6;
+  float: left;
+  margin-left:1%;
+  text-align: center;
+  width:5%;
+  margin-top:1%;
+  transition: all .3s;
+}
+.char_box p {
+  padding-top:15%;
+}
+.number_container{
+  width:100%;
+  border-right:1px #e6e6e6 solid;
+  height:25vh;
+  float:left;
+  background:#c7d2e7 !important;
+}
+.submit_answer{
+  float: right;
+  position: absolute;
+  top:0%;
+  font-size: 20px;
+  background:black;
+  border:none;
+  color:white;
+  width:10%;
+  right:0%;
+  height:100%;
+}
+.char_box p {
+  color:black;
+  font-size:20px;
+}
+.char_box:hover{
+  transform:translateY(-2px);
+  background:black;
+  color:white;
+}
+
+.char_box:hover p{
+  color:white;
+}
