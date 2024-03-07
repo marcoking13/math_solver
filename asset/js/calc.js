@@ -20,7 +20,6 @@ var chars = [
 
 ]
 
-
 var number_container = document.querySelector(".number_container");
 var input = document.querySelector(".number_value");
 
@@ -84,25 +83,72 @@ function PopulateAnswer(answer){
 
 }
 
+var eval_choice = document.querySelector("[choice = 'evaluate']");
+var isModalOn = false;
+var exit_modal = document.querySelector(".exit_modal");
+var wrapper_modal = document.querySelector(".modal_wrapper");
+var modal = document.querySelector("#modal");
+
+function ToggleModal(){
+
+  if(isModalOn){
+    wrapper_modal.classList.remove("inactive");
+    modal.classList.remove("inactive");
+  }else{
+    wrapper_modal.classList.add("inactive");
+    modal.classList.add("inactive");
+  }
+
+}
+
+function EnterAndExitModal(){
+  isModalOn = isModalOn ? false : true;
+  ToggleModal();
+}
+
+// function ExitModal(){
+//   isModalOn = isModalOn ? false : true;
+//   ToggleModal();
+// }
 
 function HandleInput(e){
+
   e.preventDefault();
+
   try{
+
     var evaluation = math.evaluate(input.value);
+
   }catch{
     alert("Please Enter a valid input");
   }
+
   if(isNaN(evaluation)){
     evaluation = "Answer could not be found"
   }
+
   PopulateAnswer(evaluation);
+
 }
 
 
 form.addEventListener("submit",(e)=>{
-  HandleInput(e);
+  e.preventDefault();
+  EnterAndExitModal();
 });
 
 submit.addEventListener("click",(e)=>{
+  e.preventDefault();
+  EnterAndExitModal();
+});
+
+exit_modal.addEventListener("click",(e)=>{
+  e.preventDefault();
+  EnterAndExitModal();
+});
+
+
+eval_choice.addEventListener("click",(e)=>{
+  EnterAndExitModal();
   HandleInput(e);
 });

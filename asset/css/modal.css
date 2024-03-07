@@ -1,0 +1,74 @@
+#modal{
+  position: absolute;
+  top:20%;
+  z-index:99;
+  width:100%;
+}
+.modal_wrapper{
+  width:100%;
+  z-index:1;
+  height:150%;
+  position: absolute;
+  top:0%;
+  left:0%;
+  background:black;
+  opacity:.6;
+}
+
+.inactive{
+  visibility: hidden;
+}
+.modal_body{
+  width:100%;
+  height:100%;
+  background:white;
+  animation:slide_in .75s ease-in 1;
+}
+
+@keyframes slide_in{
+  0%{
+    transform:translateY(-500px);
+  }
+  100%{
+    transform:translateY(0px);
+  }
+}
+
+.modal_choice:hover{
+  background:#e6e6e6;
+}
+
+#wrapper{
+  position: relative;
+  z-index:0;
+}
+
+.modal_header{
+  background:#7c98d3;
+  padding:2.5%;
+  height:30%;
+  width:100%;
+  color:white;
+}
+
+.modal_title{
+  font-size:16px;
+  text-align: left;
+  padding-left:2.5%;
+  width:90%;
+  float:left;
+}
+
+.exit_modal{
+  float:right;
+  width:10%;
+  font-size:16px;
+  color:white;
+}
+
+
+.modal_choice{
+  background:white;
+  color:black;
+  padding:2.5%;
+}

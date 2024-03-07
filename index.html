@@ -3,49 +3,81 @@
   <head>
     <meta charset="utf-8">
     <title>Math Solver</title>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://fonts.cdnfonts.com/css/amazon-ember" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Archivo+Black&family=Exo+2:wght@600&family=Exo:wght@800;900&family=Heebo:wght@800&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,900;1,600&family=Noto+Sans:wght@300&family=Poppins:wght@600&family=Protest+Revolution&family=Roboto+Condensed:wght@300;400&family=Roboto:ital,wght@0,300;1,100&family=Rubik+Distressed&family=Rubik+Moonrocks&family=Special+Elite&family=Teko:wght@300;500&family=Vast+Shadow&family=Work+Sans:wght@200;300;400&display=swap" rel="stylesheet">
     <link href = "./asset/css/index.css" rel = "stylesheet" >
+    <link href = "./asset/css/modal.css" rel = "stylesheet" >
+
     <link rel="icon" href="./asset/imgs/logo.png">
   </head>
+
   <body>
-
-    <header>
-        <nav class="navigation">
-            <div class="row">
-            <div class="col-1">
-              <img class="logo" src = "./asset/imgs/logo.png" />
-            </div>
-            <div class="col-3">
-              <p class="logo_name"> Math Solver </p>
-            </div>
-        </nav>
-    </header>
-
-    <main>
+    <div id = "modal" class="inactive">
       <div class="container-fluid">
-
-        <div class="answer_log">
-
-        </div>
-        <div class="number_input">
-          <form class="enter_form">
-            <input class="number_value" placeholder=" Enter Problem Here     ">
-            <button class="submit_answer" type="submit">=</button>
-          </form>
-        </div>
-        <div class="number_container">
-
-        </div>
-        <div class="special_container">
-
-        </div>
+          <div class='row'>
+            <div class="col-4"></div>
+            <div class="col-4">
+                <div class="modal_body">
+                    <div class="modal_header">
+                      <p class="modal_title"> How Should I Answer? </p>
+                      <p class="exit_modal">X</p>
+                    </div>
+                    <div class="modal_choice" choice = "evaluate">
+                      Evaluate
+                    </div>
+                    <div class="modal_choice" choice = "quadradic">
+                      Quadradic Equation Solver
+                    </div>
+                    <div class="modal_choice" choice = "evaluate">
+                      Find Arthmetic Sequence
+                    </div>
+                </div>
+            </div>
+            <div class="col-4"></div>
+          </div>
       </div>
+    </div>
+    <div id = "wrapper">
+      <div class="modal_wrapper inactive"></div>
+      <header>
+          <nav class="navigation">
+              <div class="row">
+                <div class="col-1">
+                  <img class="logo" src = "./asset/imgs/logo.png" />
+                </div>
+                <div class="col-3">
+                  <p class="logo_name"> Math Solver </p>
+                </div>
+          </nav>
+      </header>
+
+      <main>
+
+        <div class="container-fluid">
+
+          <div class="answer_log"></div>
+
+          <div class="number_input">
+            <form class="enter_form">
+              <input class="number_value" placeholder=" Enter Problem Here     ">
+              <button class="submit_answer" type="submit">=</button>
+            </form>
+          </div>
+
+        <div class="number_container"></div>
+
+        <div class="special_container"></div>
+
+      </div>
+
     </main>
+
+  </div>
 
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.3.2/math.js" ></script>
     <script src = "./asset/js/calc.js" ></script>
+    <script src = "./asset/js/calc_quadratic.js"></script>
   </body>
+
 </html>
