@@ -106,23 +106,77 @@ quadratic_choice.addEventListener("click",(e)=>{
 
   if(coefficent_counter == 2 && can_eval && squared_counter == 1){
       var split_input = parsed_input.split(" ");
+      split_input = split_input.filter(e => e !== '');
       console.log(split_input);
       var a;
       var b;
       var c;
       for(var counter = 0; counter < split_input.length; counter++){
+
         var num;
         var coef;
         var squared;
         var squared_num;
         var input = split_input[counter];
+
         for(var num_counter = 0; num_counter < numbers.length; num_counter++){
-          if(input == numbers[num_counter]){
+
+          if(input.includes(numbers[num_counter])){
+
             num = input;
+            var possible_identifier = split_input[counter - 1];
+
+            if(possible_identifier == "-"){
+              num = parseInt("-"+num);
+            }else{
+              num = parseInt("+"+num);
+            }
+
+            if(input.includes("^")){
+              a = num;
+            }else{
+              var found_letter = false;
+              for(var letter_counter=0; letter_counter<letters.length;letter_counter++){
+                if(input.includes(letters[letter_counter])){
+                  b = num;
+                  found_letter = true;
+                  break;
+                }
+              }
+              if(!found_letter){
+                c = num;
+              }
+            }
+
           }
         }
       }
 
+      console.log(a);
+      console.log(b);
+      console.log(c);
+
+      var final_equation_pos = eval((-b + (Math.sqrt((b**2)-(4*a*c)))) / (2*a));
+      var final_equation_neg = eval((-b - (Math.sqrt((b**2)-(4*a*c)))) / (2*a));
+
+      // var divide_equation = parseInt(2*a);
+      // var final_equation_pos = eval(neg_b + (sqr_equation) / divide_equation);
+      // var final_equation_neg = eval(neg_b - (sqr_equation) / divide_equation);
+      if(!Number.isFinite(final_equation_pos) || !Number.isFinite(final_equation_neg) === "number"){
+        console.log("Equation is not real");
+      }
+
+      var answer = {
+        x:Math.round(final_equation_pos * 1000) / 1000,
+        y:Math.round(final_equation_neg * 1000) / 1000
+      }
+
+      console.log(answer);
+
+      var answer_html = `X = ${answer.x}, Y = ${answer.y}`;
+
+      PopulateAnswer(answer_html);
+      EnterAndExitModal();
 
   }
 
