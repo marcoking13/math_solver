@@ -73,13 +73,16 @@ console.log(numbers);
     for(var i = 0; i<numbers.length -1 ;i++){
 
           var prevNum = parseFloat(numbers[i]);
+          if(i > 0){
+            prevNum = parseFloat(numbers[ i - 1])
+          }
           var counter = i + 1;
 
           var nextNum = parseFloat(numbers[counter])
 
           var addDifference = prevNum - nextNum;
           var subDifference = prevNum + nextNum;
-          console.log(subDifference);
+          console.log(prevNum,nextNum);
           var multipliedDifference = nextNum  / prevNum;
           var dividedDifference = prevNum / nextNum;
 
